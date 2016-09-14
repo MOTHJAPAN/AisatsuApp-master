@@ -29,11 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v.getId() == R.id.button1) {
             showTimePickerDialog() ;
-
         }
-
-
-        }
+    }
 
     private void showTimePickerDialog() {
         TimePickerDialog timePickerDialog = new TimePickerDialog(this,
@@ -43,26 +40,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Log.d("UI-PARTS", String.valueOf(hourOfDay) + ":" + String.valueOf(minute));
 
                         //ここでIF等設定
-                        if(2 <= hourOfDay){
-                            mTextView.setText("おはよう");
-
-                        }
-                        else if (10 <= hourOfDay){
-                            mTextView.setText("こんにちは");
-
-                        }
-
-
-                        else if (18 <= hourOfDay){
+                        if (hourOfDay >=18){
                             mTextView.setText("こんばんわ");
-
+                        }
+                        else if (hourOfDay>=10){
+                            mTextView.setText("こんにちは");
+                        }
+                        else if (hourOfDay>=2){
+                            mTextView.setText("おはよう");
+                        }
+                        else if (hourOfDay<=2){
+                            mTextView.setText("こんばんは");
                         }
 
                     }
                 },
-
-
-
                 1, // 初期値（時間）
                 0,  // 初期値（分）
                 true);
@@ -70,9 +62,3 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 }
-
-
-
-
-
-
